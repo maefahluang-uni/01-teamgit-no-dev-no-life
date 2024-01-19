@@ -43,77 +43,36 @@ public class Counter {
 		}
 	
 
-	// // method increments _ctr to the closest prime number
-public void incrementToPrime() {
-    _ctr = nextPrime(_ctr);
-}
-
-// Helper method to find the next prime number
-private int nextPrime(int n) {
-    if (n < 2) {
-        return 2; // 2 is the smallest prime number
-    }
-
-    n++; // Increment to check the next number
-
-    while (!isPrime(n)) {
-        n++; // Keep incrementing until a prime number is found
-    }
-
-    return n;
-}
-
-// Helper method to check if a number is prime
-private boolean isPrime(int num) {
-    if (num < 2) {
-        return false;
-    }
-
-    for (int i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i == 0) {
-            return false; // Not a prime number
+	// TODO: dev2- method for increment to closest prime number
+	public void incrementToPrime() {
+		increment();
+		while (!isPrime(_ctr)) {
+            _ctr++;
         }
-    }
+	}
 
-    return true; // Prime number
-}
-
-	
-
-	// // method decrements _ctr to the closest prime number
-public void decrementToPrime() {
-    _ctr = previousPrime(_ctr);
-}
-
-// Helper method to find the previous prime number
-private int previousPrime(int n) {
-    if (n <= 2) {
-        return 2; // 2 is the smallest prime number
-    } else {
-        n--; // Decrement to check the previous number
-    }
-
-    while (!isPrime(n)) {
-        n--; // Keep decrementing until a prime number is found
-    }
-
-    return n;
-}
-
-// Helper method to check if a number is prime
-private boolean isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-
-    for (int i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i == 0) {
-            return false; // Not a prime number
+	// TODO: dev2- method for decrement to closest prime number
+	public void decrementToPrime() {
+		decrement();
+		while (!isPrime(_ctr)) {
+            _ctr--;
         }
+	}
+
+
+	 // Check if a number is prime
+	 private boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    return true; // Prime number
-}
 
 	
 
