@@ -52,6 +52,17 @@ public class Counter {
 	// refactor source code from dev1 and dev2
 	public void countFrequency(String word, String sentence) {
 		_ctr = -99;
+		int count = 0;
+		int index = sentence.indexOf(word);
+	
+		while (index != -1) {
+			count++;
+			index = sentence.indexOf(word, index + 1);
+		}
+	
+		_ctr = count;
+		System.out.println("Frequency of '" + word + "' in the sentence: " + count);
+		
 	}
 
 }
