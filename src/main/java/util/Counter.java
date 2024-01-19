@@ -38,15 +38,79 @@ public class Counter {
 		_ctr = -99;
 	}
 
-	// TODO: dev2- method for increment to closest prime number
-	public void incrementToPrime() {
-		_ctr = -99;
-	}
+	// // method increments _ctr to the closest prime number
+public void incrementToPrime() {
+    _ctr = nextPrime(_ctr);
+}
 
-	// TODO: dev2- method for decrement to closest prime number
-	public void decrementToPrime() {
-		_ctr = -99;
-	}
+// Helper method to find the next prime number
+private int nextPrime(int n) {
+    if (n < 2) {
+        return 2; // 2 is the smallest prime number
+    }
+
+    n++; // Increment to check the next number
+
+    while (!isPrime(n)) {
+        n++; // Keep incrementing until a prime number is found
+    }
+
+    return n;
+}
+
+// Helper method to check if a number is prime
+private boolean isPrime(int num) {
+    if (num < 2) {
+        return false;
+    }
+
+    for (int i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i == 0) {
+            return false; // Not a prime number
+        }
+    }
+
+    return true; // Prime number
+}
+
+	
+
+	// // method decrements _ctr to the closest prime number
+public void decrementToPrime() {
+    _ctr = previousPrime(_ctr);
+}
+
+// Helper method to find the previous prime number
+private int previousPrime(int n) {
+    if (n <= 2) {
+        return 2; // 2 is the smallest prime number
+    } else {
+        n--; // Decrement to check the previous number
+    }
+
+    while (!isPrime(n)) {
+        n--; // Keep decrementing until a prime number is found
+    }
+
+    return n;
+}
+
+// Helper method to check if a number is prime
+private boolean isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i == 0) {
+            return false; // Not a prime number
+        }
+    }
+
+    return true; // Prime number
+}
+
+	
 
 	// TODO: dev3- count the frequency of word in sentence,
 	// refactor source code from dev1 and dev2
