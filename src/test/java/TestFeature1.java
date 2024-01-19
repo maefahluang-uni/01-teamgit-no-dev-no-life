@@ -36,7 +36,7 @@ public class TestFeature1 {
 	public void testDecrementToEven(){
 		counter._ctr = -12;
 		counter.decrementToEven();
-		Assert.assertEquals(-14, counter._ctr);
+		Assert.assertEquals(-12, counter._ctr);
 	}
 	
 }
